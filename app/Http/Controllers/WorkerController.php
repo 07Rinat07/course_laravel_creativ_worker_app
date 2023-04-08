@@ -10,15 +10,13 @@ class WorkerController extends Controller
     public function index()
     {
         $workers = Worker::all ();
-      foreach ($workers as $worker) {
-          dump ($worker->name);
-      }
+
+        return view ('worker.index', compact ('workers'));
     }
 
-    public function show()
+    public function show(Worker $worker)
     {
-        $worker = Worker::find(2);
-        dd ($worker);
+       return view ('worker.show', compact ('worker'));
     }
 
     public function create()
@@ -32,16 +30,16 @@ class WorkerController extends Controller
             'is_married' => false,
         ];
 
-        Worker::create($worker);
+        Worker::create ($worker);
 
         return 'Ivan was created';
     }
 
     public function update()
     {
-        $worker = Worker::find(2);
+        $worker = Worker::find (2);
 
-        $worker->update([
+        $worker->update ([
             'name' => 'Karl',
             'surname' => 'Petrov',
         ]);
@@ -51,9 +49,9 @@ class WorkerController extends Controller
 
     public function delete()
     {
-        $worker = Worker::find(2);
+        $worker = Worker::find (2);
 
-        $worker->delete();
+        $worker->delete ();
         return 'Was deleted';
     }
 }
