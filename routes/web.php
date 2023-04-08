@@ -16,8 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/workers', function (){
-
-    dd (11111111111111111111);
-    return 'this is worker from routes';
-});
+Route::get('/workers', [\App\Http\Controllers\WorkerController::class, 'index']);
+Route::get('/workers/show', [\App\Http\Controllers\WorkerController::class, 'show']);
