@@ -33,21 +33,6 @@ class UpdateRequest extends FormRequest
         ];
     }
 
-//    public function messages()
-//    {
-//        return [
-//            'name.required' => 'Это поле необходимо заполнить',
-//            'name.string' => 'Это поле должно быть строкой',
-//            'surname.required' => 'Это поле необходимо заполнить',
-//            'surname.string' => 'Это поле должно быть строкой',
-//            'email.required' => 'Это поле необходимо заполнить',
-//            'email.email' => 'Это поле должно быть формата электронной почты',
-//            'age.integer' => 'Это поле должно быть числовым форматом',
-//            'description.string' => 'Это поле должно быть строкой',
-//            'is_married.string' => 'Это поле должно быть строкой',
-//        ];
-//    }
-
     public function messages()
     {
         return [
