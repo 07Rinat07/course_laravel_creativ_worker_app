@@ -52,11 +52,9 @@ class WorkerController extends Controller
         return redirect ()->route ('worker.show', $worker->id);
     }
 
-    public function delete()
+    public function delete(Worker $worker)
     {
-        $worker = Worker::find (2);
-
-        $worker->delete ();
-        return 'Was deleted';
+      $worker->delete ();
+      return redirect ()->route ('worker.index');
     }
 }
