@@ -60,7 +60,7 @@ Index page
         <hr>
         @endforeach
             <div class="my-nav">
-                {{ $workers->links() }}
+                {{ $workers->withQueryString()->links() }}
             </div>
 </div>
 
