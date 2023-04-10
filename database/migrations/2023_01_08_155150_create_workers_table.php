@@ -21,8 +21,10 @@ return new class extends Migration
             $table->integer ('age')->nullable ();
             $table->text ('description')->nullable ();
             $table->boolean ('is_married')->default (false);
-
             $table->timestamps();
+
+
+            $table->foreignId('position_id')->nullable ()->index ()->constrained ('workers');
         });
     }
 

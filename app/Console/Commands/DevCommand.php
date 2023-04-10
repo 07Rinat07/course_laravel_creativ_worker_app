@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Position;
 use App\Models\Profile;
 use App\Models\Worker;
 use Illuminate\Console\Command;
@@ -29,12 +30,12 @@ class DevCommand extends Command
      */
     public function handle()
     {
-       // $this->prepareData ();
+//        $this->prepareData ();
 
-       $worker = Worker::find(1);
-       $profile = Profile::find(1);
+      $worker = Worker::find(1);
+      $position = Position::find(1);
+      dd ($position->workers->toArray());
 
-       dd ($worker->profile->toArray());
 
 
         return 0;
@@ -43,27 +44,76 @@ class DevCommand extends Command
 
     private function prepareData()
     {
-        $workerData = [
+        $position1 = Position::create([
+            'title' => 'Developer',
+        ]);
+        $position2 = Position::create([
+            'title' => 'Manager',
+        ]);
+
+
+
+        $workerData1 = [
             'name' => 'Ivan',
             'surname' => 'Ivanov',
             'email' => 'ivanov@mai.ru',
+            'position_id' => $position1->id,
             'age' => 20,
             'description' => 'Some description',
             'is_married' => false,
         ];
 
-        $worker = Worker::create ($workerData);
+        $workerData2 = [
+            'name' => 'Karl',
+            'surname' => 'Petrov',
+            'email' => 'karlpetrov@mai.ru',
+            'position_id' => $position2->id,
+            'age' => 50,
+            'description' => 'Some description',
+            'is_married' => true,
+        ];
 
-        $profileData = [
-            'worker_id' => $worker->id,
+        $workerData3 = [
+            'name' => 'Katya',
+            'surname' => 'Gazyeva',
+            'email' => 'sssa@mai.ru',
+            'position_id' => $position1->id,
+            'age' => 41,
+            'description' => 'Some description',
+            'is_married' => false,
+        ];
+
+        $worker1 = Worker::create ($workerData1);
+        $worker2 = Worker::create ($workerData2);
+        $worker3 = Worker::create ($workerData3);
+
+        $profileData1 = [
+            'worker_id' => $worker1->id,
             'city' => 'Tokio',
             'skill' => 'Backend developer',
             'experience' => 5,
             'finished_study_at' => '2020-06-01',
         ];
+        $profileData2 = [
+            'worker_id' => $worker2->id,
+            'city' => 'RIO',
+            'skill' => 'frontend developer',
+            'experience' => 4,
+            'finished_study_at' => '2019-06-01',
+        ];
 
-        $profile = Profile::create ($profileData);
+        $profileData3 = [
+            'worker_id' => $worker3->id,
+            'city' => 'Berlin',
+            'skill' => 'developer',
+            'experience' => 2,
+            'finished_study_at' => '2021-06-01',
+        ];
 
-        dd ($profile->id);
+        Profile::create ($profileData1);
+        Profile::create ($profileData2);
+        Profile::create ($profileData3);
+
+        //dd ($profile->id);
     }
 }
