@@ -9,4 +9,6 @@
 
 ## About Laravel - info
 This repository is my learning project for basic and advanced knowledge of the Laravel framework. Applied PHP 8 && Laravel 9.5
+### Tutorial in Laravel
+* https://code.mu/ru/php/framework/laravel/book/prime/
 
