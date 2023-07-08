@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Department;
 use App\Models\Position;
 use App\Models\Profile;
 use App\Models\Project;
@@ -32,23 +33,10 @@ class DevCommand extends Command
      */
     public function handle()
     {
-//        $this->prepareData(); //(создаст ссылки на айди pivot когда активирована с командой php artisan develop)
-//          $this->prepareManyToMany();
+        $this->prepareData(); //(создаст ссылки на айди pivot когда активирована с командой php artisan develop)
+          $this->prepareManyToMany();
 //         ( сперва надо ее - добавляет всех спецов когда активирована с командой php artisan develop)
 
-        $worker = Worker::find(2);
-
-        $worker1 = Worker::find(1);
-
-        $worker2 = Worker::find(3);
-
-        $project = Project::find(1);
-
-
-//        $project->workers()->attach([$worker->id, $worker1->id, $worker2->id]);
-
-        $project->workers()->toggle($worker->id);
-        dd($worker->toArray());
 
         return 0;
     }
@@ -56,14 +44,25 @@ class DevCommand extends Command
 
     private function prepareData()
     {
+        $department1 = Department::create([
+           'title' => 'IT'
+        ]);
+        $department2 = Department::create([
+            'title' => 'Analitics'
+        ]);
+
+
         $position1 = Position::create([
             'title' => 'Developer',
+            'department_id' => $department1->id
         ]);
         $position2 = Position::create([
             'title' => 'Manager',
+            'department_id' => $department1->id
         ]);
         $position3 = Position::create([
             'title' => 'Designer',
+            'department_id' => $department1->id
         ]);
 
 
