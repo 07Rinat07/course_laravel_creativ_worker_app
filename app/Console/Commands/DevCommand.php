@@ -32,9 +32,23 @@ class DevCommand extends Command
      */
     public function handle()
     {
-        $this->prepareData (); //(создаст ссылки на айди pivot когда активирована с командой php artisan develop)
-//        $this->prepareManyToMany(); ( сперва надо ее - добавляет всех спецов когда активирована с командой php artisan develop)
+//        $this->prepareData(); //(создаст ссылки на айди pivot когда активирована с командой php artisan develop)
+//          $this->prepareManyToMany();
+//         ( сперва надо ее - добавляет всех спецов когда активирована с командой php artisan develop)
 
+        $worker = Worker::find(2);
+
+        $worker1 = Worker::find(1);
+
+        $worker2 = Worker::find(3);
+
+        $project = Project::find(1);
+
+
+//        $project->workers()->attach([$worker->id, $worker1->id, $worker2->id]);
+
+        $project->workers()->detach($worker->id);
+        dd($worker->toArray());
 
         return 0;
     }
@@ -51,7 +65,6 @@ class DevCommand extends Command
         $position3 = Position::create([
             'title' => 'Designer',
         ]);
-
 
 
         $workerData1 = [
@@ -113,12 +126,12 @@ class DevCommand extends Command
             'is_married' => true,
         ];
 
-        $worker1 = Worker::create ($workerData1);
-        $worker2 = Worker::create ($workerData2);
-        $worker3 = Worker::create ($workerData3);
-        $worker4 = Worker::create ($workerData4);
-        $worker5 = Worker::create ($workerData5);
-        $worker6 = Worker::create ($workerData6);
+        $worker1 = Worker::create($workerData1);
+        $worker2 = Worker::create($workerData2);
+        $worker3 = Worker::create($workerData3);
+        $worker4 = Worker::create($workerData4);
+        $worker5 = Worker::create($workerData5);
+        $worker6 = Worker::create($workerData6);
 
         $profileData1 = [
             'worker_id' => $worker1->id,
@@ -164,12 +177,12 @@ class DevCommand extends Command
             'finished_study_at' => '2013-06-01',
         ];
 
-        Profile::create ($profileData1);
-        Profile::create ($profileData2);
-        Profile::create ($profileData3);
-        Profile::create ($profileData4);
-        Profile::create ($profileData5);
-        Profile::create ($profileData6);
+        Profile::create($profileData1);
+        Profile::create($profileData2);
+        Profile::create($profileData3);
+        Profile::create($profileData4);
+        Profile::create($profileData5);
+        Profile::create($profileData6);
 
         //dd ($profile->id);
     }
@@ -179,10 +192,10 @@ class DevCommand extends Command
         $workerManager = Worker::find(2);
         $workerBackend = Worker::find(1);
 
-        $workerDisigner1 = Worker::find(4);
-        $workerDisigner2 = Worker::find(5);
-        $workerDeveloper1 = Worker::find(6);
-        $workerDeveloper2 = Worker::find(3);
+        $workerDisigner1 = Worker::find(5);
+        $workerDisigner2 = Worker::find(6);
+        $workerFrontEnd1 = Worker::find(4);
+        $workerFrontEnd2 = Worker::find(3);
 
 
         $project1 = Project::create([
@@ -209,10 +222,8 @@ class DevCommand extends Command
 
         ProjectWorker::create([
             'project_id' => $project1->id,
-            'worker_id' => $workerDeveloper1->id,
+            'worker_id' => $workerFrontEnd1->id,
         ]);
-
-
 
 
         ProjectWorker::create([
@@ -227,12 +238,12 @@ class DevCommand extends Command
 
         ProjectWorker::create([
             'project_id' => $project2->id,
-            'worker_id' => $workerDisigner1->id,
+            'worker_id' => $workerDisigner2->id,
         ]);
 
         ProjectWorker::create([
             'project_id' => $project2->id,
-            'worker_id' => $workerDeveloper1->id,
+            'worker_id' => $workerFrontEnd2->id,
         ]);
     }
 }
