@@ -47,7 +47,7 @@ class DevCommand extends Command
 
 //        $project->workers()->attach([$worker->id, $worker1->id, $worker2->id]);
 
-        $project->workers()->detach($worker->id);
+        $project->workers()->toggle($worker->id);
         dd($worker->toArray());
 
         return 0;
