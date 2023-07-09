@@ -33,11 +33,10 @@ class DevCommand extends Command
      */
     public function handle()
     {
+
+        $worker = Worker::find(2);
 //        $this->prepareData(); //(создаст ссылки на айди pivot когда активирована с командой php artisan develop)
 //        $this->prepareManyToMany();
-
-
-        $worker = Worker::find(7);
 
 //        $department = Department::find(1);
 //
@@ -45,9 +44,10 @@ class DevCommand extends Command
 //
 //        $worker = Worker::where('position_id', $position->id)->first();
 //        dd($worker->toArray());
+        //dd($department->workers->toArray());
+//        dd($department->workers->toArray());
 
         dd($worker->position->department->toArray());
-
 
         return 0;
     }
