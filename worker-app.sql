@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 09 2023 г., 20:32
+-- Время создания: Июл 09 2023 г., 21:40
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -124,7 +124,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2023_07_13_121150_create_positions_table', 1),
 (11, '2023_07_14_150221_create_clients_table', 1),
 (12, '2023_07_15_150547_create_avatars_table', 1),
-(13, '2023_07_16_170854_create_reviews_table', 1);
+(13, '2023_07_16_170854_create_reviews_table', 1),
+(16, '2023_07_17_181019_create_tags_table', 2),
+(17, '2023_07_18_181443_create_taggables_table', 2);
 
 -- --------------------------------------------------------
 
@@ -303,6 +305,61 @@ INSERT INTO `reviews` (`id`, `body`, `created_at`, `updated_at`, `reviewable_id`
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `taggables`
+--
+
+CREATE TABLE `taggables` (
+  `id` bigint UNSIGNED NOT NULL,
+  `tag_id` bigint UNSIGNED NOT NULL,
+  `taggable_id` bigint UNSIGNED NOT NULL,
+  `taggable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `taggables`
+--
+
+INSERT INTO `taggables` (`id`, `tag_id`, `taggable_id`, `taggable_type`, `created_at`, `updated_at`) VALUES
+(1, 1, 5, 'App\\Models\\Worker', NULL, NULL),
+(2, 3, 5, 'App\\Models\\Worker', NULL, NULL),
+(3, 2, 2, 'App\\Models\\Client', NULL, NULL),
+(4, 3, 2, 'App\\Models\\Client', NULL, NULL),
+(5, 1, 5, 'App\\Models\\Worker', NULL, NULL),
+(6, 3, 5, 'App\\Models\\Worker', NULL, NULL),
+(7, 2, 2, 'App\\Models\\Client', NULL, NULL),
+(8, 3, 2, 'App\\Models\\Client', NULL, NULL),
+(9, 1, 5, 'App\\Models\\Worker', NULL, NULL),
+(10, 3, 5, 'App\\Models\\Worker', NULL, NULL),
+(11, 2, 2, 'App\\Models\\Client', NULL, NULL),
+(12, 3, 2, 'App\\Models\\Client', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tags`
+--
+
+CREATE TABLE `tags` (
+  `id` bigint UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `tags`
+--
+
+INSERT INTO `tags` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'developer', NULL, NULL),
+(2, 'big boss', NULL, NULL),
+(3, 'designer', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -434,6 +491,18 @@ ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `taggables`
+--
+ALTER TABLE `taggables`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -479,7 +548,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -516,6 +585,18 @@ ALTER TABLE `project_worker`
 --
 ALTER TABLE `reviews`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT для таблицы `taggables`
+--
+ALTER TABLE `taggables`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
