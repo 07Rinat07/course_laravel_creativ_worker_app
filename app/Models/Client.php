@@ -15,4 +15,9 @@ class Client extends Model
     {
         return $this->morphOne(Avatar::class, 'avatarable');
     }
+
+    public function reviews()
+    {
+        return $this->morphMany(Review::class, 'reviewable');
+    }
 }

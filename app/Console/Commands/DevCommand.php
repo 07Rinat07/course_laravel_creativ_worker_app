@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\Project;
+use App\Models\Review;
 use App\Models\Worker;
 use Illuminate\Console\Command;
 
@@ -40,8 +41,34 @@ class DevCommand extends Command
         $worker = Worker::find(5);
         $client = Client::find(2);
 
-        $avatar = Avatar::find(2);
-        dd($avatar->avatarable->toArray());
+        $worker->reviews()->create([
+           'body' => 'body 1'
+        ]);
+        $worker->reviews()->create([
+            'body' => 'body 2'
+        ]);
+        $worker->reviews()->create([
+            'body' => 'body 3'
+        ]);
+
+
+        $client->reviews()->create([
+            'body' => 'body 1'
+        ]);
+        $client->reviews()->create([
+            'body' => 'body 2'
+        ]);
+        $client->reviews()->create([
+            'body' => 'body 3'
+        ]);
+
+
+        $review = Review::find(2);
+        dd($review->reviewable->toArray());
+//
+//        $avatar = Avatar::find(2);
+//        dd($avatar->avatarable->toArray());
+
 
 //        $worker->avatar()->create([
 //            'path' => 'some path'
@@ -55,6 +82,16 @@ class DevCommand extends Command
 
     private function prepareData()
     {
+        Client::create([
+           'name' => 'Bob'
+        ]);
+        Client::create([
+            'name' => 'John'
+        ]);
+        Client::create([
+            'name' => 'Elena'
+        ]);
+
         $department1 = Department::create([
            'title' => 'IT'
         ]);
