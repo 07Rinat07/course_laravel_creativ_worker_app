@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 09 2023 г., 13:05
+-- Время создания: Июл 09 2023 г., 14:48
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -39,8 +39,8 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'IT', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(2, 'Analitics', '2023-07-09 05:20:19', '2023-07-09 05:20:19');
+(1, 'IT', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(2, 'Analitics', '2023-07-09 08:36:38', '2023-07-09 08:36:38');
 
 -- --------------------------------------------------------
 
@@ -75,16 +75,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(11, '2014_10_12_000000_create_users_table', 1),
-(12, '2014_10_12_100000_create_password_resets_table', 1),
-(13, '2019_08_19_000000_create_failed_jobs_table', 1),
-(14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(15, '2023_01_08_155150_create_workers_table', 1),
-(16, '2023_04_10_054330_create_profiles_table', 1),
-(17, '2023_07_10_172323_create_projects_table', 1),
-(18, '2023_07_11_172740_create_project_workers_table', 1),
-(19, '2023_12_09_182250_create_departments_table', 1),
-(20, '2023_12_10_121150_create_positions_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2023_01_08_155150_create_workers_table', 1),
+(6, '2023_04_10_054330_create_profiles_table', 1),
+(7, '2023_07_10_172323_create_projects_table', 1),
+(8, '2023_07_11_172740_create_project_workers_table', 1),
+(9, '2023_12_09_182250_create_departments_table', 1),
+(10, '2023_12_10_121150_create_positions_table', 1);
 
 -- --------------------------------------------------------
 
@@ -136,11 +136,11 @@ CREATE TABLE `positions` (
 --
 
 INSERT INTO `positions` (`id`, `title`, `department_id`, `created_at`, `updated_at`) VALUES
-(1, 'Developer', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(2, 'Manager', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(3, 'Designer', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(4, 'Boss', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(5, 'Designer', 2, '2023-07-09 05:20:19', '2023-07-09 05:20:19');
+(1, 'Developer', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(2, 'Manager', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(3, 'Designer', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(4, 'Boss', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(5, 'Designer', 2, '2023-07-09 08:36:38', '2023-07-09 08:36:38');
 
 -- --------------------------------------------------------
 
@@ -164,13 +164,13 @@ CREATE TABLE `profiles` (
 --
 
 INSERT INTO `profiles` (`id`, `worker_id`, `city`, `skill`, `experience`, `finished_study_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Tokio', 'Backend developer', 5, '2020-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(2, 2, 'RIO', 'frontend developer', 4, '2019-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(3, 3, 'Berlin', 'developer', 2, '2021-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(4, 4, 'Oslo', 'Disigned', 2, '2021-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(5, 5, 'Almaty', 'Designer', 1, '2022-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(6, 6, 'New York', 'backend', 10, '2013-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(7, 7, 'Moscov', 'Boss-team lead-PM', 12, '2011-06-01', '2023-07-09 05:20:19', '2023-07-09 05:20:19');
+(1, 1, 'Tokio', 'Backend developer', 5, '2020-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(2, 2, 'RIO', 'frontend developer', 4, '2019-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(3, 3, 'Berlin', 'developer', 2, '2021-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(4, 4, 'Oslo', 'Disigned', 2, '2021-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(5, 5, 'Almaty', 'Designer', 1, '2022-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(6, 6, 'New York', 'backend', 10, '2013-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(7, 7, 'Moscov', 'Boss-team lead-PM', 12, '2011-06-01', '2023-07-09 08:36:38', '2023-07-09 08:36:38');
 
 -- --------------------------------------------------------
 
@@ -190,16 +190,16 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'Shop', '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(2, 'Blog', '2023-07-09 05:20:19', '2023-07-09 05:20:19');
+(1, 'Shop', '2023-07-09 08:36:38', '2023-07-09 08:36:38'),
+(2, 'Blog', '2023-07-09 08:36:38', '2023-07-09 08:36:38');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `project_workers`
+-- Структура таблицы `project_worker`
 --
 
-CREATE TABLE `project_workers` (
+CREATE TABLE `project_worker` (
   `id` bigint UNSIGNED NOT NULL,
   `project_id` bigint UNSIGNED NOT NULL,
   `worker_id` bigint UNSIGNED NOT NULL,
@@ -208,18 +208,18 @@ CREATE TABLE `project_workers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `project_workers`
+-- Дамп данных таблицы `project_worker`
 --
 
-INSERT INTO `project_workers` (`id`, `project_id`, `worker_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(2, 1, 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(3, 1, 5, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(4, 1, 4, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(5, 2, 7, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(6, 2, 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(7, 2, 6, '2023-07-09 05:20:19', '2023-07-09 05:20:19'),
-(8, 2, 3, '2023-07-09 05:20:19', '2023-07-09 05:20:19');
+INSERT INTO `project_worker` (`id`, `project_id`, `worker_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, NULL, NULL),
+(2, 1, 1, NULL, NULL),
+(3, 1, 5, NULL, NULL),
+(4, 1, 4, NULL, NULL),
+(5, 2, 2, NULL, NULL),
+(6, 2, 1, NULL, NULL),
+(7, 2, 6, NULL, NULL),
+(8, 2, 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -262,13 +262,13 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `surname`, `email`, `age`, `description`, `is_married`, `created_at`, `updated_at`, `position_id`) VALUES
-(1, 'Ivan', 'Ivanov', 'ivanov@mai.ru', 20, 'Some description', 0, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 1),
-(2, 'Karl', 'Petrov', 'karlpetrov@mai.ru', 50, 'Some description', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 2),
-(3, 'Katya', 'Gazyeva', 'sssa@mai.ru', 41, 'Some description', 0, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 1),
-(4, 'Alina', 'Amirova', 'alina@mai.ru', 21, 'Some description', 0, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 3),
-(5, 'Karina', 'Darts', 'karina@mai.ru', 19, 'Some description', 0, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 3),
-(6, 'Alex', 'Karimaev', 'alex@mai.ru', 48, 'Some description', 1, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 1),
-(7, 'Anna', 'Popova', 'anna@mai.ru', 35, 'Step by step', 0, '2023-07-09 05:20:19', '2023-07-09 05:20:19', 4);
+(1, 'Ivan', 'Ivanov', 'ivanov@mai.ru', 20, 'Some description', 0, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 1),
+(2, 'Karl', 'Petrov', 'karlpetrov@mai.ru', 50, 'Some description', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 2),
+(3, 'Katya', 'Gazyeva', 'sssa@mai.ru', 41, 'Some description', 0, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 1),
+(4, 'Alina', 'Amirova', 'alina@mai.ru', 21, 'Some description', 0, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 3),
+(5, 'Karina', 'Darts', 'karina@mai.ru', 19, 'Some description', 0, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 3),
+(6, 'Alex', 'Karimaev', 'alex@mai.ru', 48, 'Some description', 1, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 1),
+(7, 'Anna', 'Popova', 'anna@mai.ru', 35, 'Step by step', 0, '2023-07-09 08:36:38', '2023-07-09 08:36:38', 4);
 
 --
 -- Индексы сохранённых таблиц
@@ -328,13 +328,13 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `project_workers`
+-- Индексы таблицы `project_worker`
 --
-ALTER TABLE `project_workers`
+ALTER TABLE `project_worker`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `project_workers_project_id_worker_id_unique` (`project_id`,`worker_id`),
-  ADD KEY `project_workers_project_id_index` (`project_id`),
-  ADD KEY `project_workers_worker_id_index` (`worker_id`);
+  ADD UNIQUE KEY `project_worker_project_id_worker_id_unique` (`project_id`,`worker_id`),
+  ADD KEY `project_worker_project_id_index` (`project_id`),
+  ADD KEY `project_worker_worker_id_index` (`worker_id`);
 
 --
 -- Индексы таблицы `users`
@@ -370,7 +370,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -397,9 +397,9 @@ ALTER TABLE `projects`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT для таблицы `project_workers`
+-- AUTO_INCREMENT для таблицы `project_worker`
 --
-ALTER TABLE `project_workers`
+ALTER TABLE `project_worker`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
@@ -431,11 +431,11 @@ ALTER TABLE `profiles`
   ADD CONSTRAINT `profiles_worker_id_foreign` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `project_workers`
+-- Ограничения внешнего ключа таблицы `project_worker`
 --
-ALTER TABLE `project_workers`
-  ADD CONSTRAINT `project_workers_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`),
-  ADD CONSTRAINT `project_workers_worker_id_foreign` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`id`);
+ALTER TABLE `project_worker`
+  ADD CONSTRAINT `project_worker_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`),
+  ADD CONSTRAINT `project_worker_worker_id_foreign` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `workers`
