@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 09 2023 г., 19:50
+-- Время создания: Июл 09 2023 г., 20:32
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -36,14 +36,6 @@ CREATE TABLE `avatars` (
   `avatarable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `avatars`
---
-
-INSERT INTO `avatars` (`id`, `path`, `created_at`, `updated_at`, `avatarable_id`, `avatarable_type`) VALUES
-(1, 'some path', '2023-07-09 12:57:04', '2023-07-09 12:57:04', 1, 'App\\Models\\Worker'),
-(2, 'some path', '2023-07-09 12:58:20', '2023-07-09 12:58:20', 5, 'App\\Models\\Worker');
-
 -- --------------------------------------------------------
 
 --
@@ -56,6 +48,15 @@ CREATE TABLE `clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Bob', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(2, 'John', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(3, 'Elena', '2023-07-09 14:21:17', '2023-07-09 14:21:17');
 
 -- --------------------------------------------------------
 
@@ -75,8 +76,8 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'IT', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(2, 'Analitics', '2023-07-09 12:52:11', '2023-07-09 12:52:11');
+(1, 'IT', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(2, 'Analitics', '2023-07-09 14:21:17', '2023-07-09 14:21:17');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2023_07_12_182250_create_departments_table', 1),
 (10, '2023_07_13_121150_create_positions_table', 1),
 (11, '2023_07_14_150221_create_clients_table', 1),
-(12, '2023_07_15_150547_create_avatars_table', 1);
+(12, '2023_07_15_150547_create_avatars_table', 1),
+(13, '2023_07_16_170854_create_reviews_table', 1);
 
 -- --------------------------------------------------------
 
@@ -174,11 +176,11 @@ CREATE TABLE `positions` (
 --
 
 INSERT INTO `positions` (`id`, `title`, `department_id`, `created_at`, `updated_at`) VALUES
-(1, 'Developer', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(2, 'Manager', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(3, 'Designer', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(4, 'Boss', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(5, 'Designer', 2, '2023-07-09 12:52:11', '2023-07-09 12:52:11');
+(1, 'Developer', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(2, 'Manager', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(3, 'Designer', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(4, 'Boss', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(5, 'Designer', 2, '2023-07-09 14:21:17', '2023-07-09 14:21:17');
 
 -- --------------------------------------------------------
 
@@ -202,13 +204,13 @@ CREATE TABLE `profiles` (
 --
 
 INSERT INTO `profiles` (`id`, `worker_id`, `city`, `skill`, `experience`, `finished_study_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Tokio', 'Backend developer', 5, '2020-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(2, 2, 'RIO', 'frontend developer', 4, '2019-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(3, 3, 'Berlin', 'developer', 2, '2021-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(4, 4, 'Oslo', 'Disigned', 2, '2021-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(5, 5, 'Almaty', 'Designer', 1, '2022-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(6, 6, 'New York', 'backend', 10, '2013-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(7, 7, 'Moscov', 'Boss-team lead-PM', 12, '2011-06-01', '2023-07-09 12:52:11', '2023-07-09 12:52:11');
+(1, 1, 'Tokio', 'Backend developer', 5, '2020-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(2, 2, 'RIO', 'frontend developer', 4, '2019-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(3, 3, 'Berlin', 'developer', 2, '2021-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(4, 4, 'Oslo', 'Disigned', 2, '2021-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(5, 5, 'Almaty', 'Designer', 1, '2022-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(6, 6, 'New York', 'backend', 10, '2013-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(7, 7, 'Moscov', 'Boss-team lead-PM', 12, '2011-06-01', '2023-07-09 14:21:17', '2023-07-09 14:21:17');
 
 -- --------------------------------------------------------
 
@@ -228,8 +230,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'Shop', '2023-07-09 12:52:11', '2023-07-09 12:52:11'),
-(2, 'Blog', '2023-07-09 12:52:11', '2023-07-09 12:52:11');
+(1, 'Shop', '2023-07-09 14:21:17', '2023-07-09 14:21:17'),
+(2, 'Blog', '2023-07-09 14:21:17', '2023-07-09 14:21:17');
 
 -- --------------------------------------------------------
 
@@ -258,6 +260,45 @@ INSERT INTO `project_worker` (`id`, `project_id`, `worker_id`, `created_at`, `up
 (6, 2, 1, NULL, NULL),
 (7, 2, 6, NULL, NULL),
 (8, 2, 3, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` bigint UNSIGNED NOT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `reviewable_id` bigint UNSIGNED NOT NULL,
+  `reviewable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `body`, `created_at`, `updated_at`, `reviewable_id`, `reviewable_type`) VALUES
+(1, 'body 1', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 5, 'App\\Models\\Worker'),
+(2, 'body 2', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 5, 'App\\Models\\Worker'),
+(3, 'body 3', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 5, 'App\\Models\\Worker'),
+(4, 'body 1', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 2, 'App\\Models\\Client'),
+(5, 'body 2', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 2, 'App\\Models\\Client'),
+(6, 'body 3', '2023-07-09 14:26:53', '2023-07-09 14:26:53', 2, 'App\\Models\\Client'),
+(7, 'body 1', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 5, 'App\\Models\\Worker'),
+(8, 'body 2', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 5, 'App\\Models\\Worker'),
+(9, 'body 3', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 5, 'App\\Models\\Worker'),
+(10, 'body 1', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 2, 'App\\Models\\Client'),
+(11, 'body 2', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 2, 'App\\Models\\Client'),
+(12, 'body 3', '2023-07-09 14:29:33', '2023-07-09 14:29:33', 2, 'App\\Models\\Client'),
+(13, 'body 1', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 5, 'App\\Models\\Worker'),
+(14, 'body 2', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 5, 'App\\Models\\Worker'),
+(15, 'body 3', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 5, 'App\\Models\\Worker'),
+(16, 'body 1', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 2, 'App\\Models\\Client'),
+(17, 'body 2', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 2, 'App\\Models\\Client'),
+(18, 'body 3', '2023-07-09 14:30:15', '2023-07-09 14:30:15', 2, 'App\\Models\\Client');
 
 -- --------------------------------------------------------
 
@@ -300,13 +341,13 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `surname`, `email`, `age`, `description`, `is_married`, `created_at`, `updated_at`, `position_id`) VALUES
-(1, 'Ivan', 'Ivanov', 'ivanov@mai.ru', 20, 'Some description', 0, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 1),
-(2, 'Karl', 'Petrov', 'karlpetrov@mai.ru', 50, 'Some description', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 2),
-(3, 'Katya', 'Gazyeva', 'sssa@mai.ru', 41, 'Some description', 0, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 1),
-(4, 'Alina', 'Amirova', 'alina@mai.ru', 21, 'Some description', 0, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 3),
-(5, 'Karina', 'Darts', 'karina@mai.ru', 19, 'Some description', 0, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 3),
-(6, 'Alex', 'Karimaev', 'alex@mai.ru', 48, 'Some description', 1, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 1),
-(7, 'Anna', 'Popova', 'anna@mai.ru', 35, 'Step by step', 0, '2023-07-09 12:52:11', '2023-07-09 12:52:11', 4);
+(1, 'Ivan', 'Ivanov', 'ivanov@mai.ru', 20, 'Some description', 0, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 1),
+(2, 'Karl', 'Petrov', 'karlpetrov@mai.ru', 50, 'Some description', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 2),
+(3, 'Katya', 'Gazyeva', 'sssa@mai.ru', 41, 'Some description', 0, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 1),
+(4, 'Alina', 'Amirova', 'alina@mai.ru', 21, 'Some description', 0, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 3),
+(5, 'Karina', 'Darts', 'karina@mai.ru', 19, 'Some description', 0, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 3),
+(6, 'Alex', 'Karimaev', 'alex@mai.ru', 48, 'Some description', 1, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 1),
+(7, 'Anna', 'Popova', 'anna@mai.ru', 35, 'Step by step', 0, '2023-07-09 14:21:17', '2023-07-09 14:21:17', 4);
 
 --
 -- Индексы сохранённых таблиц
@@ -387,6 +428,12 @@ ALTER TABLE `project_worker`
   ADD KEY `project_worker_worker_id_index` (`worker_id`);
 
 --
+-- Индексы таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -408,13 +455,13 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT для таблицы `avatars`
 --
 ALTER TABLE `avatars`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `departments`
@@ -432,7 +479,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
@@ -463,6 +510,12 @@ ALTER TABLE `projects`
 --
 ALTER TABLE `project_worker`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT для таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
