@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Avatar;
+use App\Models\Client;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\Project;
@@ -34,10 +36,20 @@ class DevCommand extends Command
 //        $this->prepareData();
 //        $this->prepareManyToMany();
 
-        $worker = Worker::find(1);
-        dd($worker->projects->toArray());
 
-        return 0;
+        $worker = Worker::find(5);
+        $client = Client::find(2);
+
+        $avatar = Avatar::find(2);
+        dd($avatar->avatarable->toArray());
+
+//        $worker->avatar()->create([
+//            'path' => 'some path'
+//        ]);
+//       $client->avatar()->create([
+//          'path' => 'client path'
+//       ]);
+       return 0;
     }
 
 
