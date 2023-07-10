@@ -21,4 +21,9 @@ class Position extends Model
     public function department(){
         return $this->belongsTo(Department::class);
     }
+
+    public function queryWorker()
+    {
+        return $this->hasOne(Worker::class)->where('surname', 'Karimaev');
+    }
 }
