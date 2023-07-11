@@ -31,6 +31,7 @@ class IndexRequest extends FormRequest
             'to' => 'nullable|integer',
             'description' => 'nullable|string',
             'is_married' => 'nullable|string',
+
         ];
     }
     public function messages()

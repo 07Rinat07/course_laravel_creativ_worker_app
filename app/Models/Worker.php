@@ -21,7 +21,6 @@ class Worker extends Model
     {
         return $this->belongsTo(Position::class);
     }
-
     public function projects()
     {
         return $this->belongsToMany (Project::class);
@@ -41,4 +40,5 @@ class Worker extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
 }

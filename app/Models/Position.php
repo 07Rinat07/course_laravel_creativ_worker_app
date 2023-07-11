@@ -9,9 +9,7 @@ class Position extends Model
 {
     use HasFactory;
     protected $table = 'positions';
-
     protected $guarded = false;
-
 
     public function workers()
     {
@@ -24,6 +22,7 @@ class Position extends Model
 
     public function queryWorker()
     {
-        return $this->hasOne(Worker::class)->where('surname', 'Karimaev');
+        return $this->hasOne(Worker::class);
     }
+
 }

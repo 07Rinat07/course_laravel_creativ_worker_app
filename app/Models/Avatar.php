@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Avatar extends Model
 {
     use HasFactory;
+    protected $table = 'avatars';
     protected $guarded = false;
 
 

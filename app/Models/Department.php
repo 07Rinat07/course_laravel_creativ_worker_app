@@ -14,10 +14,10 @@ class Department extends Model
 
     public function boss() {
         return $this->hasOneThrough(Worker::class, Position::class)
-            ->where('position_id', 4);
+            ->where('position_id');
     }
 
     public function workers() {
-        return $this->hasManyThrough(Worker::class);
+        return $this->hasManyThrough(Worker::class, Position::class);
     }
 }
