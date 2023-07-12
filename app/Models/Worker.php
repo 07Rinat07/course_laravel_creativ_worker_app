@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\Worker\CreatedEvent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,13 @@ class Worker extends Model
     use HasFactory;
     protected $table = 'workers';
     protected $guarded = false;
+
+    protected static function booted()
+    {
+        static::created(function ($model) {
+            event(new CreatedEvent($model));
+        });
+    }
 
 
     public function profile()

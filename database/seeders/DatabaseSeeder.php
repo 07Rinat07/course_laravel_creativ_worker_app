@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
 
             PositionSeeder::class,
 
-            ProfileSeeder::class,
+            WorkerSeeder::class,
+
+//            ProfileSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();
