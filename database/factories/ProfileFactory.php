@@ -21,7 +21,7 @@ class ProfileFactory extends Factory
             'worker_id' => Worker::factory()->create(),
             'city' => fake()->city,
             'skill' => fake()->jobTitle,
-            'experience' => fake()->numberBetween(2, 10),
+            'experience' => fake()->numberBetween(2, 20),
             'finished_study_at' => fake()->date,
         ];
     }
