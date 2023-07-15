@@ -6,7 +6,7 @@
     <hr>
 
     <div>
-        <form action="{{route ('worker.update', $worker->id)}}" method="post">
+        <form action="{{route ('workers.update', $worker->id)}}" method="post">
             @csrf
             @method('PATCH')
             <div style="margin-bottom: 10px"><input type="text" name="name" placeholder="name" value="{{old ('name') ?? $worker->name}}">
