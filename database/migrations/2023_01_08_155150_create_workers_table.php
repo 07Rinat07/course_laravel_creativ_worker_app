@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreignId('position_id')->nullable ()->index ()->constrained ('workers');
+            $table->foreignId('position_id')->nullable ()->index ();
         });
     }
 
