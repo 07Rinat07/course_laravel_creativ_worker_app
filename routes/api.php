@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('workers', [\App\Http\Controllers\API\WorkerController::class, 'index']);
+Route::get('workers/{worker}', [\App\Http\Controllers\API\WorkerController::class, 'show']);
