@@ -1,13 +1,14 @@
-
 @extends('layout.main')
-
 @section('content')
 
 <div>
     <hr>
+
+    @can('create', \App\Models\Worker::class)
     <div>
         <a href="{{ route ('workers.create') }}">Добавить</a>
     </div>
+    @endcan
     <hr>
     <div>
         <form action="{{ route ('workers.index') }}">
@@ -37,9 +38,12 @@
             <div>Is married: {{ $worker->is_married }}</div>
         <div>
             <a href="{{ route ('workers.show', $worker->id) }}">Просматреть</a>
+            @can('update', $worker)
             <div>
                 <a href="{{ route ('workers.edit', $worker->id) }}">Редактировать</a>
             </div>
+            @endcan
+            @can('delete', $worker)
             <div>
                 <form action="{{ route ('workers.destroy', $worker->id) }}" method="post">
                     @csrf
@@ -47,6 +51,7 @@
                     <input type="submit" value="Удалить">
                 </form>
             </div>
+            @endcan
 
         </div>
         </div>

@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::resource('workers', \App\Http\Controllers\WorkerController::class)->middleware(['auth', 'isAdmin']);
+Route::resource('workers', \App\Http\Controllers\WorkerController::class)->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
