@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 
 Route::resource('workers', \App\Http\Controllers\WorkerController::class)->middleware(['auth']);
-
+//для работы с апи надо убрать ->middleware(['auth'])
 
 Route::get('/dashboard', function () {
     return view('dashboard');
